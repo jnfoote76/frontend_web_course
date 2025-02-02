@@ -26,7 +26,14 @@ p {
     margin-right: 10px;
 }
 
+.section-container {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+}
+
 section {
+    border: 3px solid black;
     background-color: #999999;
 }
 
@@ -71,7 +78,6 @@ section {
     .col-lg-11,
     .col-lg-12 {
         float: left;
-        border: 1px solid black;
     }
 
     .col-lg-1 {
@@ -139,7 +145,6 @@ section {
     .col-md-11,
     .col-md-12 {
         float: left;
-        border: 1px solid black;
     }
 
     .col-md-1 {
@@ -207,7 +212,6 @@ section {
     .col-sm-11,
     .col-sm-12 {
         float: left;
-        border: 1px solid black;
     }
 
     .col-sm-1 {
