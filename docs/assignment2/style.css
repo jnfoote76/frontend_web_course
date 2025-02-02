@@ -21,6 +21,11 @@ p {
     font-family: Helvetica;
 }
 
+.everything {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 section {
     background-color: #999999;
 }
