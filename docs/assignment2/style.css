@@ -19,7 +19,6 @@ p {
     margin-right: auto;
     margin-left: auto;
     font-family: Helvetica;
-    color: white;
 }
 
 section {
@@ -31,6 +30,19 @@ section {
     border: 1px solid black;
     width: 33%;
     padding-top: 1px;
+}
+
+.chicken {
+    background-color: #d59898;
+}
+
+.beef {
+    background-color: #c14543;
+    color: white;
+}
+
+.sushi {
+    background-color: #e5d198;
 }
 
 /* Simple Responsive Framework. */
