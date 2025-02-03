@@ -282,9 +282,16 @@ section {
     
     .alternate-title {
         display: block;
+    }
+
+    h1.alternate-title {
         font-size: 1.5em;
         text-align: left;
         padding-left: 10px;
         font-family:Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .section-header.alternate-title {
+        width: 100%;
     }
 }
