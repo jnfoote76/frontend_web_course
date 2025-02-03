@@ -19,6 +19,12 @@ p {
     margin-right: auto;
     margin-left: auto;
     font-family: Helvetica;
+    height: 100px;
+    overflow-y: hidden;
+}
+
+p:hover {
+    overflow-y: scroll;
 }
 
 .everything {
