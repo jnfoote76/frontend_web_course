@@ -2,12 +2,22 @@
     box-sizing: border-box;
 }
 
+/* 
+Default font for most text
+
+Gets overridden later for certain cases
+*/
 body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
     text-align: center;
+
+    /* 
+    Requirement 15: "set the font size of the heading and section title 
+    to be 75% larger and 25% larger (respectively) than the font size of the dummy text."
+    */
     font-size: 1.75em;
 }
 
@@ -15,27 +25,31 @@ h3 {
     text-align: center;
     margin-top: 2px;
     margin-bottom: 2px;
+
+    /* 
+    Requirement 15: "set the font size of the heading and section title 
+    to be 75% larger and 25% larger (respectively) than the font size of the dummy text."
+    */
     font-size: 1.25em;
 }
 
 p {
-    clear: both;
-    width: 95%;
-    height: 100px;
     overflow-y: hidden;
+
+    /* 
+    Looking to mainly control spacing surrounding paragraph with selectors for "paragraph-container"
+    class
+    */
     margin-top: 0px;
     margin-bottom: 0px;
     padding-top: 0px;
     padding-bottom: 0px;
+
+    /* 
+    Requirement 15: "set the font size of the heading and section title to be 75% larger
+    and 25% larger (respectively) than the font size of the dummy text."
+    */
     font-size: 1em;
-}
-
-.paragraph-container {
-    clear: both;
-}
-
-p:hover {
-    overflow-y: scroll;
 }
 
 .everything {
@@ -55,12 +69,32 @@ section {
 }
 
 .section-header {
-    float: right; 
+    /* Causes box to be right-aligned*/
+    float: right;
+
     border: 1px solid black;
     width: 33%;
     padding-top: 1px;
 }
 
+.paragraph-container {
+    /*
+    Ensures that paragraph text is always on a different
+    line from section header 
+    */
+    clear: both;
+}
+
+/* 
+Implementing requirement 2 (lower section)
+*/
+p:hover {
+    overflow-y: scroll;
+}
+
+/* 
+Set colors for all 3 section headers
+*/
 .section-header.chicken {
     background-color: #d59898;
 }
@@ -74,7 +108,14 @@ section {
     background-color: #e5d198;
 }
 
-/* Simple Responsive Framework. */
+/* Simple Responsive Framework. 
+
+Note: most of the rest is taken from examples
+
+Each media section does have selectors added to the end
+to implement required differences between the different
+views
+*/
 .row {
     width: 100%;
 }
@@ -163,6 +204,14 @@ section {
         margin-bottom: 60px;
     }
 
+    /* 
+    Implementing spacing above/below paragraph
+    by constraining height of "paragraph-container",
+    setting the paragraph height to be somewhat less,
+    and then having padding make up the difference
+
+    (similar blocks appear for each section and within the other media queries)
+    */
     .paragraph-container.chicken {
         padding-top: 15px;
         padding-bottom: 25px;
@@ -172,6 +221,13 @@ section {
     p.chicken {
         height: 110px;
 
+        /* 
+        Giving an equal left margin for all sections,
+        but using width to control what portion of the container to take up.
+
+        In this case, "Chicken" seems to be closer to
+        right margin in the mockup than the other two
+        */
         width: 95%;
         margin-left: 12px;
     }
@@ -202,6 +258,9 @@ section {
         margin-left: 12px;
     }
 
+    /* 
+    Selectors below control the horizontal "margins" between sections
+    */
     .section-container.chicken {
         padding-right: 12px;
     }
@@ -292,6 +351,14 @@ section {
         margin-bottom: 30px;
     }
 
+    /* 
+    Implementing spacing above/below paragraph
+    by constraining height of "paragraph-container",
+    setting the paragraph height to be somewhat less,
+    and then having padding make up the difference
+
+    (similar blocks appear for each section and within the other media queries)
+    */
     .paragraph-container.chicken {
         padding-top: 15px;
         padding-bottom: 2px;
@@ -301,6 +368,14 @@ section {
     p.chicken {
         height: 133px;
 
+        /* 
+        Giving an equal left margin for all sections,
+        but using width to control what portion of the container to take up.
+
+        In this case, "Chicken" and "Beef" appear to have
+        roughly equal right margins in the mockup, but "Sushi" seems to have 
+        much smaller margins (basically hugging against the edge)
+        */
         width: 90%;
         margin-left: 12px;
         margin-right: 5px;
@@ -334,6 +409,9 @@ section {
         margin-right: 0px;
     }
 
+    /* 
+    Selectors below control the horizontal "margins" between sections
+    */
     .section-container.chicken {
         padding-right: 8px;
     }
@@ -419,25 +497,50 @@ section {
         margin-bottom: 15px;
     }
 
+    /* 
+    For mobile view, making regular titles disappear
+    */
     .main-title {
         display: none;
     }
     
+    /* 
+    Make alternate titles appear (hidden in other views) 
+    */
     .alternate-title {
         display: block;
     }
 
+    /* 
+    Set style for alternate page heading according to requirement 1 (at the bottom) 
+    */
     h1.alternate-title {
         font-size: 1.5em;
         text-align: left;
+
+        /* 
+        In the mockup, the mobile view has particularly large left and right margins
+        */
         padding-left: 40px;
-        font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     }
 
+    /* 
+    Make alternate section heading fill full page (instead of just a portion, as in other views)
+    */
     .section-header.alternate-title {
         width: 100%;
     }
 
+    /* 
+    Implementing spacing above/below paragraph
+    by constraining height of "paragraph-container",
+    setting the paragraph height to be somewhat less,
+    and then having padding make up the difference
+
+    (similar blocks appear for each section and within the other media queries)
+    */
     .paragraph-container.chicken {
         padding-top: 15px;
         padding-bottom: 25px;
@@ -447,6 +550,13 @@ section {
     p.chicken {
         height: 110px;
 
+        /* 
+        Giving an equal left margin for all sections,
+        but using width to control what portion of the container to take up.
+
+        In this case, "Chicken" seems to be closer to
+        right margin in the mockup than the other two
+        */
         width: 95%;
         margin-left: 12px;
     }
@@ -477,6 +587,9 @@ section {
         margin-left: 12px;
     }
 
+    /* 
+    In the mockup, the mobile view has particularly large left and right margins
+    */
     .section-container {
         padding-left: 40px;
         padding-right: 40px;
