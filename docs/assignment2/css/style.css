@@ -7,7 +7,6 @@ body {
 }
 
 h1 {
-    margin-bottom: 15px;
     text-align: center;
     font-size: 1.75em;
 }
@@ -154,6 +153,16 @@ section {
         width: 100%;
     }
 
+    /* 
+    Adjusting spacing below main header to match mockup 
+    
+    Appears to be largest for desktop view, then slightly
+    smaller for tablet, then slightly smaller for mobile
+    */
+    h1 {
+        margin-bottom: 60px;
+    }
+
     .paragraph-container.chicken {
         padding-top: 15px;
         padding-bottom: 25px;
@@ -273,6 +282,16 @@ section {
         width: 100%;
     }
 
+    /* 
+    Adjusting spacing below main header to match mockup 
+    
+    Appears to be largest for desktop view, then slightly
+    smaller for tablet, then slightly smaller for mobile
+    */
+    h1 {
+        margin-bottom: 30px;
+    }
+
     .paragraph-container.chicken {
         padding-top: 15px;
         padding-bottom: 2px;
@@ -388,6 +407,16 @@ section {
 
     .col-sm-12 {
         width: 100%;
+    }
+
+    /* 
+    Adjusting spacing below main header to match mockup 
+    
+    Appears to be largest for desktop view, then slightly
+    smaller for tablet, then slightly smaller for mobile
+    */
+    h1 {
+        margin-bottom: 15px;
     }
 
     .main-title {
