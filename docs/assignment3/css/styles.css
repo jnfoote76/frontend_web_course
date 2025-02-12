@@ -3,6 +3,14 @@ section {
     background-color: #999999;
     height: 700px;
     position: relative;
+
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.section-wrapper {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .section-bottom {
