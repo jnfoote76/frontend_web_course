@@ -162,10 +162,29 @@ dc.buildAndShowAbout = function() {
   $ajaxUtils.sendGetRequest(
     aboutHtml,
     function (aboutHtml) {
-      insertHtml("#main-content", aboutHtml);
+      var numStarsFilled = generateRandomStarRating();
+      var updatedAboutHtml = aboutHtml;
+
+      for (var i = 1; i <= numStarsFilled; i++) {
+        var propertyName = "class" + i;
+        updatedAboutHtml = insertProperty(updatedAboutHtml, propertyName, "fa fa-star");
+      }
+
+      for (var i = numStarsFilled; i <= 5; i++) {
+        var propertyName = "class" + i;
+        updatedAboutHtml = insertProperty(updatedAboutHtml, propertyName, "fa fa-star-o");
+      }
+
+      updatedAboutHtml = insertProperty(updatedAboutHtml, "rating-num-stars", numStarsFilled.toString());
+
+      insertHtml("#main-content", updatedAboutHtml);
     },
     false);
 };
+
+function generateRandomStarRating() {
+  return Math.floor(Math.random() * 5) + 1;
+}
 
 
 // Builds HTML for the categories page based on the data
