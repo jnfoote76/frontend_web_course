@@ -23,6 +23,8 @@ var menuItemsUrl =
 var menuItemsTitleHtml = "snippets/menu-items-title.html";
 var menuItemHtml = "snippets/menu-item.html";
 
+var aboutHtml = "snippets/about.html"
+
 // Convenience function for inserting innerHTML for 'select'
 var insertHtml = function (selector, html) {
   var targetElem = document.querySelector(selector);
@@ -154,6 +156,15 @@ dc.loadMenuItems = function (categoryShort) {
   $ajaxUtils.sendGetRequest(
     menuItemsUrl + categoryShort + ".json",
     buildAndShowMenuItemsHTML);
+};
+
+dc.buildAndShowAbout = function() {
+  $ajaxUtils.sendGetRequest(
+    aboutHtml,
+    function (aboutHtml) {
+      insertHtml("#main-content", aboutHtml);
+    },
+    false);
 };
 
 
