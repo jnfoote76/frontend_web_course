@@ -170,7 +170,7 @@ dc.buildAndShowAbout = function() {
         updatedAboutHtml = insertProperty(updatedAboutHtml, propertyName, "fa fa-star");
       }
 
-      for (var i = numStarsFilled; i <= 5; i++) {
+      for (var i = numStarsFilled + 1; i <= 5; i++) {
         var propertyName = "class" + i;
         updatedAboutHtml = insertProperty(updatedAboutHtml, propertyName, "fa fa-star-o");
       }
