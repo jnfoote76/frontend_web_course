@@ -6,10 +6,14 @@
         .controller('LunchCheckController', function ($scope) {
             $scope.lunchMenuStr = "";
             $scope.message = "";
+            $scope.messageBorder = "none";
+            $scope.messageFontColor = "green";
 
             $scope.checkIfTooMuch = function () {
                 if ($scope.lunchMenuStr === "") {
                     $scope.message = "Please enter data first";
+                    $scope.messageBorder = "2px solid red";
+                    $scope.messageFontColor = "red";
                 } else {
                     var lunchMenu = $scope.lunchMenuStr.split(",");
                     if (lunchMenu.length <= 3) {
@@ -17,6 +21,9 @@
                     } else {
                         $scope.message = "Too much!";
                     }
+
+                    $scope.messageBorder = "2px solid green";
+                    $scope.messageFontColor = "green";
                 }
             };
         });
