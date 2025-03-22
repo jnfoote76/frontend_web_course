@@ -12,15 +12,15 @@
     function ToBuyController(ShoppingListCheckOffService) {
         var scope = this;
         scope.toBuyItems = ShoppingListCheckOffService.getToBuyItems();
+
+        scope.buyItem = function(index) {
+            ShoppingListCheckOffService.buyItem(index);
+        }
     }
 
     function AlreadyBoughtController(ShoppingListCheckOffService) {
         var scope = this;
-        scope.foo = "";
-
-        scope.placeholderMethod = function () {
-            console.log(scope.foo);
-        };
+        scope.alreadyBoughtItems = ShoppingListCheckOffService.getAlreadyBoughtItems();
     }
 
     function ShoppingListCheckOffService() {
@@ -59,9 +59,24 @@
                 "pricePerItem": 9001
             }
         ];
+
+        var alreadyBoughtItems = [];
       
         service.getToBuyItems = function () {
           return toBuyItems;
         };
+
+        service.getAlreadyBoughtItems = function() {
+            return alreadyBoughtItems;
+        }
+
+        service.buyItem = function(index) {
+            var item = toBuyItems[index];
+
+            toBuyItems.splice(index, 1);
+            alreadyBoughtItems.push(item);
+
+            console.log(alreadyBoughtItems);
+        }
       }
 })();
