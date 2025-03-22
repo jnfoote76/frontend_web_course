@@ -11,11 +11,7 @@
 
     function ToBuyController(ShoppingListCheckOffService) {
         var scope = this;
-        scope.foo = "";
-
-        scope.placeholderMethod = function () {
-            console.log($scope.foo);
-        };
+        scope.toBuyItems = ShoppingListCheckOffService.getToBuyItems();
     }
 
     function AlreadyBoughtController(ShoppingListCheckOffService) {
@@ -31,22 +27,41 @@
         var service = this;
       
         // List of shopping items
-        var items = [];
+        var toBuyItems = [
+            {
+                "name": "cookies",
+                "quantity": 1,
+                "pricePerItem": 1
+            },
+            {
+                "name": "jars of peanut butter",
+                "quantity": 1,
+                "pricePerItem": 2
+            },
+            {
+                "name": "bags of pizza rolls",
+                "quantity": 1,
+                "pricePerItem": 5
+            },
+            {
+                "name": "cheesecakes",
+                "quantity": 1,
+                "pricePerItem": 10
+            },
+            {
+                "name": "steaks",
+                "quantity": 1,
+                "pricePerItem": 50
+            },
+            {
+                "name": "tins of beluga caviar",
+                "quantity": 1,
+                "pricePerItem": 9001
+            }
+        ];
       
-        service.addItem = function (itemName, quantity) {
-          var item = {
-            name: itemName,
-            quantity: quantity
-          };
-          items.push(item);
-        };
-      
-        service.removeItem = function (itemIndex) {
-          items.splice(itemIndex, 1);
-        };
-      
-        service.getItems = function () {
-          return items;
+        service.getToBuyItems = function () {
+          return toBuyItems;
         };
       }
 })();
