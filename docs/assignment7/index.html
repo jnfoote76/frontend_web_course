@@ -48,16 +48,16 @@
             </button>
           </li>
         </ul>
-        <div class="emptyMessage">Everything is bought!</div>
+        <div ng-if="scope.toBuyItems.length === 0" class="emptyMessage">Everything is bought!</div>
       </div>
 
       <!-- Already Bought List -->
       <div ng-controller="AlreadyBoughtController as scope" class="col-md-6">
         <h2>Already Bought:</h2>
         <ul>
-          <li ng-repeat="item in scope.alreadyBoughtItems">Bought {{item.quantity}} {{item.name}}</li>
+          <li ng-repeat="item in scope.alreadyBoughtItems">Bought {{item.quantity}} of {{item.name}} for total price of {{item.totalPrice}}</li>
         </ul>
-        <div class="emptyMessage">Nothing bought yet.</div>
+        <div ng-if="scope.alreadyBoughtItems.length === 0" class="emptyMessage">Nothing bought yet.</div>
       </div>
     </div>
   </div>

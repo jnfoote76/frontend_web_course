@@ -34,27 +34,27 @@
                 "pricePerItem": 1
             },
             {
-                "name": "jars of peanut butter",
+                "name": "peanut butter",
                 "quantity": 1,
                 "pricePerItem": 2
             },
             {
-                "name": "bags of pizza rolls",
+                "name": "pizza rolls",
                 "quantity": 1,
                 "pricePerItem": 5
             },
             {
-                "name": "cheesecakes",
+                "name": "cheesecake",
                 "quantity": 1,
                 "pricePerItem": 10
             },
             {
-                "name": "steaks",
+                "name": "steak",
                 "quantity": 1,
                 "pricePerItem": 50
             },
             {
-                "name": "tins of beluga caviar",
+                "name": "beluga caviar",
                 "quantity": 1,
                 "pricePerItem": 9001
             }
@@ -74,6 +74,8 @@
             var item = toBuyItems[index];
 
             toBuyItems.splice(index, 1);
+
+            item.totalPrice = item.quantity * item.pricePerItem;
             alreadyBoughtItems.push(item);
 
             console.log(alreadyBoughtItems);
