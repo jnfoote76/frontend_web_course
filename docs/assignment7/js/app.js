@@ -4,7 +4,8 @@
     angular.module('ShoppingListCheckOff', [])
         .controller('ToBuyController', ToBuyController)
         .controller('AlreadyBoughtController', AlreadyBoughtController)
-        .service('ShoppingListCheckOffService', ShoppingListCheckOffService);
+        .service('ShoppingListCheckOffService', ShoppingListCheckOffService)
+        .filter('total_price_in_angular_dollars', TotalPriceInAngularDollarsFilter);
 
     ToBuyController.$inject = ['ShoppingListCheckOffService'];
     AlreadyBoughtController.$inject = ['ShoppingListCheckOffService'];
@@ -36,7 +37,7 @@
             {
                 "name": "peanut butter",
                 "quantity": 1,
-                "pricePerItem": 2
+                "pricePerItem": 2.55
             },
             {
                 "name": "pizza rolls",
@@ -74,11 +75,14 @@
             var item = toBuyItems[index];
 
             toBuyItems.splice(index, 1);
-
-            item.totalPrice = item.quantity * item.pricePerItem;
             alreadyBoughtItems.push(item);
+        }
+    }
 
-            console.log(alreadyBoughtItems);
+    function TotalPriceInAngularDollarsFilter() {
+        return function(price, quantity) {
+            var totalPrice = price * quantity;
+            return "$$$" + totalPrice.toFixed(2);    
         }
     }
 })();
