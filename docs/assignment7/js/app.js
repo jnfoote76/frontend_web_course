@@ -13,7 +13,7 @@
         var scope = this;
         scope.toBuyItems = ShoppingListCheckOffService.getToBuyItems();
 
-        scope.buyItem = function(index) {
+        scope.buyItem = function (index) {
             ShoppingListCheckOffService.buyItem(index);
         }
     }
@@ -25,7 +25,7 @@
 
     function ShoppingListCheckOffService() {
         var service = this;
-      
+
         // List of shopping items
         var toBuyItems = [
             {
@@ -61,16 +61,16 @@
         ];
 
         var alreadyBoughtItems = [];
-      
+
         service.getToBuyItems = function () {
-          return toBuyItems;
+            return toBuyItems;
         };
 
-        service.getAlreadyBoughtItems = function() {
+        service.getAlreadyBoughtItems = function () {
             return alreadyBoughtItems;
         }
 
-        service.buyItem = function(index) {
+        service.buyItem = function (index) {
             var item = toBuyItems[index];
 
             toBuyItems.splice(index, 1);
@@ -80,5 +80,5 @@
 
             console.log(alreadyBoughtItems);
         }
-      }
+    }
 })();
