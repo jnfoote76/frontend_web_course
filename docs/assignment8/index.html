@@ -34,12 +34,12 @@
 
 
         <tbody>
-          <tr ng-repeat="item in narrowItDown.items">
+          <tr ng-repeat="item in narrowItDown.found">
             <td>{{item.short_name}}</td>
             <td>{{item.name}}</td>
             <td>{{item.description}}</td>
             <td>{{item.price_large}}</td>
-            <td><button type="button" class="btn-default btn-sm">Don’t want this one!</button></td>
+            <td><button type="button" class="btn-default btn-sm" ng-click="narrowItDown.removeItem($index);">Don’t want this one!</button></td>
           </tr>
         </tbody>
 

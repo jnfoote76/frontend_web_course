@@ -13,13 +13,17 @@
     var scope = this;
 
     scope.search = '';
-    scope.items = [];
+    scope.found = [];
 
     scope.getMatchedMenuItems = function () {
       MenuSearchService.getMatchedMenuItems(scope.search)
         .then(function (result) {
-          scope.items = result;
+          scope.found = result;
         })
+    }
+
+    scope.removeItem = function(index) {
+      scope.found.splice(index, 1);
     }
   }
 
