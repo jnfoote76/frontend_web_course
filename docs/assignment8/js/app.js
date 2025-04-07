@@ -22,17 +22,28 @@
         })
     }
 
-    scope.removeItem = function(index) {
+    scope.removeItem = function (index) {
       scope.found.splice(index, 1);
     }
   }
 
   function FoundItemsDirective() {
     var ddo = {
-      templateUrl: 'foundItems.html'
+      templateUrl: 'foundItems.html',
+
+      scope: {
+        items: '<',
+        onRemove: '&'
+      },
+      controller: FoundItemsDirectiveController,
+      controllerAs: 'foundItems',
+      bindToController: true
     };
 
     return ddo;
+  }
+
+  function FoundItemsDirectiveController() {
   }
 
   function MenuSearchService($http) {

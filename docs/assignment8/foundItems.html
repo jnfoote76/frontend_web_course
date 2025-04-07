@@ -1,1 +1,27 @@
-placeholder
+<div class="container results">
+    <h2>Results</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>short_name</th>
+                <th>name</th>
+                <th>description</th>
+                <th>price</th>
+                <th></th>
+            </tr>
+        </thead>
+
+
+        <tbody>
+            <tr ng-repeat="item in foundItems.items">
+                <td>{{item.short_name}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.price_large}}</td>
+                <td><button type="button" class="btn-default btn-sm" ng-click="foundItems.onRemove({index: $index});">Don’t
+                        want this one!</button></td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
