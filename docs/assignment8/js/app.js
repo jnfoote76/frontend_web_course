@@ -3,10 +3,15 @@
 
   angular.module('NarrowItDownApp', [])
     .controller('NarrowItDownController', NarrowItDownController)
+    .service('MenuSearchService', MenuSearchService)
     .directive('foundItems', FoundItemsDirective);
 
-  function NarrowItDownController() {
+  NarrowItDownController.$inject = ['MenuSearchService'];
+  MenuSearchService.$inject = ['$http'];
+
+  function NarrowItDownController(MenuSearchService) {
     var scope = this;
+    MenuSearchService.getMatchedMenuItems('teriyaki');
   }
 
   function FoundItemsDirective() {
@@ -15,5 +20,33 @@
     };
 
     return ddo;
+  }
+
+  function MenuSearchService($http) {
+    var service = this;
+
+    service.getMatchedMenuItems = function (searchTerm) {
+      return $http({
+        method: 'GET',
+        url: 'https://coursera-jhu-default-rtdb.firebaseio.com/menu_items.json'
+      }
+      ).then(function (result) {
+        var respData = result.data;
+        var propertyNames = Object.keys(respData);
+
+        var matchingItems = [];
+        console.log(respData);
+        propertyNames.forEach((property) => {
+          respData[property].menu_items.forEach((item) => {
+            if (item.description.toLowerCase().includes(searchTerm.toLowerCase())) {
+              matchingItems.push(item);
+            }
+          });
+        });
+
+        console.log(matchingItems);
+        return matchingItems;
+      });
+    };
   }
 })();
