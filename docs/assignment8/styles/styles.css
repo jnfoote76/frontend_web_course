@@ -58,3 +58,7 @@ input[type="text"] {
     transform: rotate(360deg);
   }
 }
+
+.results {
+  float: left;
+}

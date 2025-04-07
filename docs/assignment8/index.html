@@ -13,11 +13,39 @@
     <h1>Narrow Down Your Chinese Menu Choice</h1>
 
     <div class="form-group">
-      <input type="text" placeholder="search term" class="form-control">
+      <input type="text" placeholder="search term" class="form-control" ng-model="narrowItDown.search">
     </div>
     <div class="form-group narrow-button">
-      <button class="btn btn-primary">Narrow It Down For Me!</button>
+      <button class="btn btn-primary" ng-click="narrowItDown.getMatchedMenuItems();">Narrow It Down For Me!</button>
     </div>
+
+    <div class="container results">
+      <h2>Results</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>short_name</th>
+            <th>name</th>
+            <th>description</th>
+            <th>price</th>
+            <th></th>
+          </tr>
+        </thead>
+
+
+        <tbody>
+          <tr ng-repeat="item in narrowItDown.items">
+            <td>{{item.short_name}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.price_large}}</td>
+            <td><button type="button" class="btn-default btn-sm">Primary</button></td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+
   </div>
 
   <script src="js/angular-1.8.2.min.js"></script>

@@ -11,7 +11,16 @@
 
   function NarrowItDownController(MenuSearchService) {
     var scope = this;
-    MenuSearchService.getMatchedMenuItems('teriyaki');
+
+    scope.search = '';
+    scope.items = [];
+
+    scope.getMatchedMenuItems = function () {
+      MenuSearchService.getMatchedMenuItems(scope.search)
+        .then(function (result) {
+          scope.items = result;
+        })
+    }
   }
 
   function FoundItemsDirective() {
@@ -35,7 +44,6 @@
         var propertyNames = Object.keys(respData);
 
         var matchingItems = [];
-        console.log(respData);
         propertyNames.forEach((property) => {
           respData[property].menu_items.forEach((item) => {
             if (item.description.toLowerCase().includes(searchTerm.toLowerCase())) {
@@ -44,7 +52,6 @@
           });
         });
 
-        console.log(matchingItems);
         return matchingItems;
       });
     };
