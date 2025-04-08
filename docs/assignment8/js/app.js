@@ -13,13 +13,21 @@
     var scope = this;
 
     scope.search = '';
+    scope.hasSearched = false;
     scope.found = [];
 
     scope.getMatchedMenuItems = function () {
+      if (scope.search === "") {
+        scope.hasSearched = true;
+        scope.found = [];
+        return;
+      }
+
       MenuSearchService.getMatchedMenuItems(scope.search)
         .then(function (result) {
+          scope.hasSearched = true;
           scope.found = result;
-        })
+        });
     }
 
     scope.removeItem = function (index) {
@@ -32,6 +40,7 @@
       templateUrl: 'foundItems.html',
 
       scope: {
+        hasSearched: '<',
         items: '<',
         onRemove: '&'
       },

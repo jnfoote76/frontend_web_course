@@ -1,6 +1,6 @@
-<div class="container results">
+<div class="container results" ng-if="foundItems.hasSearched">
     <h2>Results</h2>
-    <table class="table">
+    <table class="table" ng-if="foundItems.items.length > 0">
         <thead>
             <tr>
                 <th>short_name</th>
@@ -24,4 +24,8 @@
         </tbody>
 
     </table>
+
+    <div ng-if="foundItems.items.length === 0">
+        Nothing found
+    </div>
 </div>
