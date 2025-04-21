@@ -23,6 +23,24 @@
 
             return deferred.promise;
         };
+
+        service.getItemsForCategory = function(categoryShortName) {
+            var deferred = $q.defer();
+
+            var myUrl = 'https://coursera-jhu-default-rtdb.firebaseio.com/menu_items/' + categoryShortName + '.json';
+
+            $http({
+                method: 'GET',
+                url: myUrl
+            }
+            ).then(function (result) {
+                console.log(result);
+
+                deferred.resolve(result.data.menu_items);
+            });
+
+            return deferred.promise;
+        }
     }
 
 })();

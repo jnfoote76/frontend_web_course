@@ -24,9 +24,21 @@
                 templateUrl: 'src/templates/categories.template.html',
                 controller: 'CategoriesController as categories',
                 resolve: {
-                    items: ['MenuDataService', function(MenuDataService) {
+                    items: ['MenuDataService', function (MenuDataService) {
                         return MenuDataService.getAllCategories();
                     }]
+                }
+            })
+
+            .state('items', {
+                url: '/categories/{categoryId}/items',
+                templateUrl: 'src/templates/items.template.html',
+                controller: 'ItemsController as items',
+                resolve: {
+                    items: ['$stateParams', 'MenuDataService',
+                        function ($stateParams, MenuDataService) {
+                            return MenuDataService.getItemsForCategory($stateParams.categoryId);
+                        }]
                 }
             });
     }
