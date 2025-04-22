@@ -1,5 +1,24 @@
 <h1>Menu Items for Category</h1>
 
-<ul>
-    <li ng-repeat="item in $ctrl.items">{{item.name}}</li>
-</ul>
+<table class="table">
+    <thead>
+        <tr>
+            <th>short_name</th>
+            <th>name</th>
+            <th>description</th>
+            <th>price</th>
+            <th></th>
+        </tr>
+    </thead>
+
+
+    <tbody>
+        <tr ng-repeat="item in $ctrl.items">
+            <td>{{item.short_name}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.price_large}}</td>
+        </tr>
+    </tbody>
+
+</table>
