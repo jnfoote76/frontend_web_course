@@ -16,8 +16,6 @@
                 url: 'https://coursera-jhu-default-rtdb.firebaseio.com/categories.json'
             }
             ).then(function (result) {
-                console.log(result);
-
                 deferred.resolve(result.data);
             });
 
@@ -34,8 +32,6 @@
                 url: myUrl
             }
             ).then(function (result) {
-                console.log(result);
-
                 deferred.resolve(result.data.menu_items);
             });
 
