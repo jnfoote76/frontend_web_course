@@ -45,7 +45,12 @@
         url: '/myInfo',
         templateUrl: 'src/public/my-info/my-info.html',
         controller: 'MyInfoController',
-        controllerAs: 'myInfoCtrl'
+        controllerAs: 'myInfoCtrl',
+        resolve: {
+          myInfo: ['UserInfoService', function (UserInfoService) {
+            return UserInfoService.getUserInfo();
+          }]
+        }
       })
       .state('public.signUp', {
         url: '/signUp',

@@ -1,3 +1,21 @@
 <div class="container">
   <h2 class="text-center">My Info</h2>
+
+  <div ng-if="myInfoCtrl.myInfo === null">
+    <span>Not Signed Up Yet. <a ui-sref="public.signUp">Sign up Now!</a></span>
+  </div>
+
+  <div ng-if="myInfoCtrl.myInfo !== null">
+    <h3>Basic info</h3>
+    <ul>
+      <li>First name: {{myInfoCtrl.myInfo.firstName}}</li>
+      <li>Last name: {{myInfoCtrl.myInfo.lastName}}</li>
+      <li>Email: {{myInfoCtrl.myInfo.email}}</li>
+      <li>Phone Number: {{myInfoCtrl.myInfo.phone}}</li>
+    </ul>
+
+    <h3>Favorite menu item</h3>
+    <menu-item menu-item="myInfoCtrl.myInfo.favoriteMenuItem.item" category-short-name="myInfoCtrl.myInfo.favoriteMenuItem.category">
+    </menu-item>
+  </div>
 </div>

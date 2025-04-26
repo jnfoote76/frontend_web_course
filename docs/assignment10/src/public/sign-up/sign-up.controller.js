@@ -63,7 +63,7 @@
         }
 
         $ctrl.invalidFavoriteItem = false;
-        deferred.resolve(menuItem);
+        deferred.resolve({ category: category, item: menuItem });
       });
 
       return deferred.promise;

@@ -8,13 +8,7 @@
   function UserInfoService() {
     var service = this;
 
-    service.user = {
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      favoriteMenuItem: null
-    };
+    service.user = null;
 
     service.getUserInfo = function () {
       return service.user;

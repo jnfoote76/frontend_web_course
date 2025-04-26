@@ -4,9 +4,11 @@
   angular.module('public')
     .controller('MyInfoController', MyInfoController);
 
-  MyInfoController.$inject = [];
-  function MyInfoController() {
+  MyInfoController.$inject = ['myInfo'];
+  function MyInfoController(myInfo) {
     var $ctrl = this;
+
+    $ctrl.myInfo = myInfo;
   }
 
 })();
