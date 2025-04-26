@@ -43,7 +43,7 @@
       </span>
       <br>
 
-      <input type="text" name="favoriteMenuItem" placeholder="Favorite Menu Item" ng-model="signUpCtrl.user.favoriteMenuItem" required>
+      <input type="text" name="favoriteMenuItem" placeholder="Favorite Menu Item" ng-model="signUpCtrl.user.favoriteMenuItem" ng-blur="signUpCtrl.validateFavoriteItem()" required>
       <span
         ng-if="signUpCtrl.invalidFavoriteItem">
         No such menu number exists
