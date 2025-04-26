@@ -4,8 +4,8 @@
   angular.module('public')
     .controller('SignUpController', SignUpController);
 
-  SignUpController.$inject = ['$q', 'MenuService'];
-  function SignUpController($q, MenuService) {
+  SignUpController.$inject = ['$q', 'MenuService', 'UserInfoService'];
+  function SignUpController($q, MenuService, UserInfoService) {
     var $ctrl = this;
 
     $ctrl.user = {
@@ -24,6 +24,15 @@
 
       $ctrl.validateFavoriteItem().then(function (menuItem) {
         if (menuItem !== null) {
+          var userInfo = {
+            firstName: $ctrl.user.firstName,
+            lastName: $ctrl.user.lastName,
+            email: $ctrl.user.email,
+            phone: $ctrl.user.phone,
+            favoriteMenuItem: menuItem
+          };
+
+          UserInfoService.saveUserInfo(userInfo);
           $ctrl.submitted = true;
         }
       });
