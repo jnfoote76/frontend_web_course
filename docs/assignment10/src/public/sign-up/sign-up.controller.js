@@ -52,7 +52,10 @@
       }
 
       var category = menuNumberMatch[1];
-      var id = menuNumberMatch[2];
+
+      var idComponent = menuNumberMatch[2];
+      var idInt = parseInt(idComponent) - 1;
+      var id = idInt.toString();
 
       MenuService.getSpecificMenuItem(category, id).then(function (menuItem) {
         if (menuItem === null) {
