@@ -40,6 +40,18 @@
             return MenuService.getMenuItems($stateParams.category);
           }]
         }
+      })
+      .state('public.myInfo', {
+        url: '/myInfo',
+        templateUrl: 'src/public/my-info/my-info.html',
+        controller: 'MyInfoController',
+        controllerAs: 'myInfoCtrl'
+      })
+      .state('public.signUp', {
+        url: '/signUp',
+        templateUrl: 'src/public/sign-up/sign-up.html',
+        controller: 'SignUpController',
+        controllerAs: 'signUpCtrl'
       });
   }
 })();
