@@ -136,6 +136,13 @@ h3.menu-item-title {
 
 /* END SINGLE CATEGORY PAGE */
 
+.regForm > input {
+  color: black;
+}
+
+.regForm > button:enabled {
+  background-color: green;
+}
 
 /********** Large devices only **********/
 @media (min-width: 1200px) {
