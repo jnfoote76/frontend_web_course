@@ -22,6 +22,11 @@
       });
     };
 
+    service.getSpecificMenuItem = function (category, id) {
+      return $http.get(ApiPath + '/menu_items/' + category + '/menu_items/' + id + '.json').then(function (response) {
+        return response.data;
+      });
+    };
   }
 
 

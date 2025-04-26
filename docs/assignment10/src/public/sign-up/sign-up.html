@@ -43,10 +43,21 @@
       </span>
       <br>
 
+      <input type="text" name="favoriteMenuItem" placeholder="Favorite Menu Item" ng-model="signUpCtrl.user.favoriteMenuItem" required>
+      <span
+        ng-if="signUpCtrl.invalidFavoriteItem">
+        No such menu number exists
+      </span>
+      <br>
+
       <button ng-disabled="regForm.$invalid" ng-click="signUpCtrl.submit()">Submit</button>
 
       <div style="margin-top: 10px;">
         Form valid? {{ regForm.$valid }}
+      </div>
+
+      <div ng-if="signUpCtrl.submitted" style="margin-top: 10px;">
+        Your information has been saved.
       </div>
     </form>
   </fieldset>
