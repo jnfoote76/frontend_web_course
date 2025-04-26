@@ -1,13 +1,13 @@
 (function () {
-"use strict";
+  "use strict";
 
-angular.module('public')
-.component('menuItem', {
-  templateUrl: 'src/public/menu-item/menu-item.html',
-  bindings: {
-    menuItem: '<',
-    categoryShortName: '<'
-  }
-});
+  angular.module('public')
+    .component('menuItem', {
+      templateUrl: 'src/public/menu-item/menu-item.html',
+      bindings: {
+        menuItem: '<',
+        categoryShortName: '<'
+      }
+    });
 
 })();
