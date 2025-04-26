@@ -7,6 +7,13 @@
   SignUpController.$inject = [];
   function SignUpController() {
     var $ctrl = this;
+
+    $ctrl.user = {
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: ''
+    }
   }
 
 })();
