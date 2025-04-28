@@ -39,16 +39,13 @@
     };
 
     $ctrl.validateFavoriteItem = function () {
-      var deferred = $q.defer();
 
       const menuNumberPattern = /([a-zA-Z]+)(\d+)/
       var menuNumberMatch = $ctrl.user.favoriteMenuItem.match(menuNumberPattern);
 
       if (menuNumberMatch === null || menuNumberMatch.length != 3) {
         $ctrl.invalidFavoriteItem = true;
-
-        deferred.resolve(null);
-        return deferred.promise;
+        return $q.when(null);
       }
 
       var category = menuNumberMatch[1];
@@ -57,16 +54,15 @@
       var idInt = parseInt(idComponent) - 1;
       var id = idInt.toString();
 
+      var deferred = $q.defer();
       MenuService.getSpecificMenuItem(category, id).then(function (menuItem) {
         if (menuItem === null) {
           $ctrl.invalidFavoriteItem = true;
-
           deferred.resolve(null);
-          return deferred.promise;
+        } else {
+          $ctrl.invalidFavoriteItem = false;
+          deferred.resolve({ category: category, item: menuItem });
         }
-
-        $ctrl.invalidFavoriteItem = false;
-        deferred.resolve({ category: category, item: menuItem });
       });
 
       return deferred.promise;
