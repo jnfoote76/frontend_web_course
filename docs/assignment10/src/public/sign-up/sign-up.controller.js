@@ -48,7 +48,7 @@
         return $q.when(null);
       }
 
-      var category = menuNumberMatch[1];
+      var category = menuNumberMatch[1].toUpperCase();
 
       var idComponent = menuNumberMatch[2];
       var idInt = parseInt(idComponent) - 1;
