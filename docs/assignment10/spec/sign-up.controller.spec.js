@@ -23,12 +23,12 @@ describe('sign-up', function () {
     }));
 
     it('should return object when menu item exists', function () {
-        $httpBackend.whenGET(ApiPath + '/menu_items/abc/menu_items/3.json').respond({ 'foo': 'bar' });
+        $httpBackend.whenGET(ApiPath + '/menu_items/ABC/menu_items/3.json').respond({ 'foo': 'bar' });
 
         signUpController.user.favoriteMenuItem = 'abc4';
 
         signUpController.validateFavoriteItem().then(function (result) {
-            expect(result).toEqual({ category: 'abc', item: { 'foo': 'bar' } });
+            expect(result).toEqual({ category: 'ABC', item: { 'foo': 'bar' } });
             expect(signUpController.invalidFavoriteItem).toBe(false);
         });
 
@@ -52,7 +52,7 @@ describe('sign-up', function () {
     });
 
     it('should return null when menu item does not exist', function () {
-        $httpBackend.whenGET(ApiPath + '/menu_items/abc/menu_items/3.json').respond(null);
+        $httpBackend.whenGET(ApiPath + '/menu_items/ABC/menu_items/3.json').respond(null);
 
         signUpController.user.favoriteMenuItem = 'abc4';
 
